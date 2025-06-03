@@ -12,6 +12,7 @@
     "@hono/node-server": "^1.14.3",
     "@hono/swagger-ui": "^0.5.1",
     "@hono/typebox-validator": "^0.3.3",
+    "@monorepo-poc/db": "workspace:^",
     "@sinclair/typebox": "^0.34.33",
     "hono": "^4.7.11",
     "hono-openapi": "^0.4.8"
