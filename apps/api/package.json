@@ -1,11 +1,11 @@
 {
   "name": "@monorepo-poc/api",
   "type": "module",
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "tsup src/main.ts --format esm --dts --clean --watch=src",
-    "build": "tsup src/main.ts --format esm --dts --clean",
+    "dev": "tsup src/index.ts --format esm --dts --clean --watch=src",
+    "build": "tsup src/index.ts --format esm --dts --clean",
     "start": "NODE_ENV=production node dist/main.js"
   },
   "dependencies": {
