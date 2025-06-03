@@ -1,5 +1,8 @@
-import {} from "@monorepo-poc/db";
+import { PrismaClient } from "@monorepo-poc/db";
 
-export function GET() {
-  return new Response("Hello Videos!");
+const client = new PrismaClient();
+
+export async function GET() {
+  const users = await client.user.findMany();
+  return new Response(JSON.stringify(users));
 }

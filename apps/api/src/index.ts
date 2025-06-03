@@ -1,10 +1,10 @@
-import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { describeRoute, generateSpecs } from "hono-openapi";
 import { resolver, validator as vValidator } from "hono-openapi/typebox";
 import { VideoListSchema } from "./schemas/video-list.js";
 import { internalServerErrorResponse } from "./schemas/errors.js";
 import * as fs from "node:fs/promises";
+import { PrismaClient } from "@monorepo-poc/db";
 
 const tags = {
   video: "video",
@@ -20,7 +20,11 @@ const documentation = {
   },
 };
 
-app.get("", (c) => c.text("Hello Videos!"));
+app.get("/", (c) => c.text("Hello Videos!"));
+app.get("/users", async (c) => {
+  const client = new PrismaClient();
+  return c.json(await client.user.findMany());
+});
 
 // 例: GET /videos パス定義
 app.get(
