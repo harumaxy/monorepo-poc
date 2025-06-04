@@ -5,11 +5,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "tsup src/index.ts --format esm --dts --clean --watch=src",
+    "dev": "prisma generate && tsup src/index.ts --format esm --dts --clean --watch=src",
     "build": "tsup src/index.ts --format esm --dts --clean"
   },
   "devDependencies": {
-    "@types/node": "^22.15.29",
     "prisma": "^6.8.2",
     "tsup": "^8.5.0"
   },
